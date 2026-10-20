@@ -1,0 +1,184 @@
+:root {
+  font-family: "Segoe UI", Arial, sans-serif;
+  color: #20243a;
+  background: #f2f5ff;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  display: grid;
+  min-height: 100vh;
+  margin: 0;
+  padding: 24px;
+  place-items: center;
+  background:
+    radial-gradient(circle at 15% 20%, #dce6ff 0, transparent 32%),
+    radial-gradient(circle at 85% 80%, #e7ddff 0, transparent 30%),
+    #f2f5ff;
+}
+
+.tarjeta {
+  width: min(100%, 520px);
+  padding: 56px 40px;
+  border: 1px solid #ffffff;
+  border-radius: 24px;
+  background: rgb(255 255 255 / 88%);
+  box-shadow: 0 24px 70px rgb(40 56 110 / 12%);
+  text-align: center;
+}
+
+.etiqueta {
+  margin: 0 0 16px;
+  color: #5868c8;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(2.5rem, 9vw, 4rem);
+  letter-spacing: -0.06em;
+}
+
+.descripcion {
+  margin: 16px 0 28px;
+  color: #626980;
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+button {
+  padding: 13px 22px;
+  border: 0;
+  border-radius: 999px;
+  background: #5868c8;
+  color: #ffffff;
+  cursor: pointer;
+  font: inherit;
+  font-weight: 600;
+  transition:
+    background-color 160ms ease,
+    transform 160ms ease;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  background: #4655b2;
+}
+
+button:focus-visible {
+  outline: 3px solid #aab4ff;
+  outline-offset: 4px;
+}
+
+.mensaje {
+  min-height: 1.5em;
+  margin: 20px 0 0;
+  color: #5868c8;
+  font-weight: 600;
+}
+
+.reloj {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  width: 112px;
+  aspect-ratio: 1;
+  border: 5px solid #5868c8;
+  border-radius: 50%;
+  background: rgb(255 255 255 / 94%);
+  box-shadow: 0 8px 24px rgb(40 56 110 / 18%);
+}
+
+.marca {
+  position: absolute;
+  z-index: 1;
+  color: #626980;
+  font-size: 0.7rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.marca-12 {
+  top: 7px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.marca-3 {
+  top: 50%;
+  right: 7px;
+  transform: translateY(-50%);
+}
+
+.marca-6 {
+  bottom: 7px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.marca-9 {
+  top: 50%;
+  left: 7px;
+  transform: translateY(-50%);
+}
+
+.manecilla {
+  position: absolute;
+  z-index: 2;
+  bottom: 50%;
+  left: 50%;
+  border-radius: 999px;
+  transform: translateX(-50%) rotate(0deg);
+  transform-origin: 50% 100%;
+}
+
+.manecilla-hora {
+  width: 4px;
+  height: 27px;
+  background: #20243a;
+}
+
+.manecilla-minuto {
+  width: 3px;
+  height: 37px;
+  background: #5868c8;
+}
+
+.manecilla-segundo {
+  z-index: 3;
+  width: 2px;
+  height: 42px;
+  background: #e36d77;
+}
+
+.centro-reloj {
+  position: absolute;
+  z-index: 4;
+  top: 50%;
+  left: 50%;
+  width: 9px;
+  height: 9px;
+  border: 2px solid #ffffff;
+  border-radius: 50%;
+  background: #e36d77;
+  transform: translate(-50%, -50%);
+}
+
+@media (max-width: 480px) {
+  .tarjeta {
+    padding: 44px 24px;
+  }
+
+  .reloj {
+    right: 16px;
+    bottom: 16px;
+    width: 88px;
+  }
+}

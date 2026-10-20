@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Una página sencilla de bienvenida hecha con HTML, CSS y JavaScript."
+    />
+    <title>Mi página sencilla</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <main class="tarjeta">
+      <p class="etiqueta">MI PRIMERA PÁGINA WEB</p>
+      <h1>¡Hola, mundo!</h1>
+      <p class="descripcion">
+        Una página sencilla creada con HTML, CSS y JavaScript.
+      </p>
+      <button id="saludo" type="button">Ver otro mensaje</button>
+      <p id="mensaje" class="mensaje" aria-live="polite">
+        ¡Qué bueno tenerte por aquí!
+      </p>
+    </main>
+    <aside class="reloj" role="img" aria-label="Reloj analógico con la hora local">
+      <span class="marca marca-12">12</span>
+      <span class="marca marca-3">3</span>
+      <span class="marca marca-6">6</span>
+      <span class="marca marca-9">9</span>
+      <span class="manecilla manecilla-hora" id="manecilla-hora"></span>
+      <span class="manecilla manecilla-minuto" id="manecilla-minuto"></span>
+      <span class="manecilla manecilla-segundo" id="manecilla-segundo"></span>
+      <span class="centro-reloj"></span>
+    </aside>
+  </body>
+</html>
