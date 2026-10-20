@@ -8,6 +8,24 @@ const boton = document.querySelector("#saludo");
 const texto = document.querySelector("#mensaje");
 let indiceMensaje = 0;
 
+const botonTema = document.querySelector("#cambiar-tema");
+const temaGuardado = localStorage.getItem("tema");
+
+function aplicarTema(tema) {
+  const temaOscuro = tema === "oscuro";
+  document.documentElement.dataset.tema = temaOscuro ? "oscuro" : "claro";
+  botonTema.setAttribute("aria-pressed", String(temaOscuro));
+  botonTema.textContent = temaOscuro ? "Activar tema claro" : "Activar tema oscuro";
+}
+
+aplicarTema(temaGuardado === "oscuro" ? "oscuro" : "claro");
+
+botonTema.addEventListener("click", () => {
+  const nuevoTema = document.documentElement.dataset.tema === "oscuro" ? "claro" : "oscuro";
+  aplicarTema(nuevoTema);
+  localStorage.setItem("tema", nuevoTema);
+});
+
 boton.addEventListener("click", () => {
   indiceMensaje = (indiceMensaje + 1) % mensajes.length;
   texto.textContent = mensajes[indiceMensaje];

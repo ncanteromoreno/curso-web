@@ -1,9 +1,30 @@
 :root {
   font-family: "Segoe UI", Arial, sans-serif;
-  color: #20243a;
-  background: #f2f5ff;
+  color: var(--color-texto);
+  background: var(--fondo);
+  color-scheme: light;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
+  --color-texto: #20243a;
+  --texto-secundario: #626980;
+  --acento: #5868c8;
+  --acento-hover: #4655b2;
+  --fondo: #f2f5ff;
+  --fondo-tarjeta: rgb(255 255 255 / 88%);
+  --borde-tarjeta: #ffffff;
+  --fondo-reloj: rgb(255 255 255 / 94%);
+}
+
+:root[data-tema="oscuro"] {
+  color-scheme: dark;
+  --color-texto: #f1f2fa;
+  --texto-secundario: #bbc0d2;
+  --acento: #aab4ff;
+  --acento-hover: #4655b2;
+  --fondo: #171927;
+  --fondo-tarjeta: rgb(35 39 58 / 92%);
+  --borde-tarjeta: #3a405d;
+  --fondo-reloj: #23273a;
 }
 
 * {
@@ -17,24 +38,34 @@ body {
   padding: 24px;
   place-items: center;
   background:
-    radial-gradient(circle at 15% 20%, #dce6ff 0, transparent 32%),
-    radial-gradient(circle at 85% 80%, #e7ddff 0, transparent 30%),
-    #f2f5ff;
+    radial-gradient(circle at 15% 20%, var(--brillo-fondo-1) 0, transparent 32%),
+    radial-gradient(circle at 85% 80%, var(--brillo-fondo-2) 0, transparent 30%),
+    var(--fondo);
+}
+
+:root {
+  --brillo-fondo-1: #dce6ff;
+  --brillo-fondo-2: #e7ddff;
+}
+
+:root[data-tema="oscuro"] {
+  --brillo-fondo-1: #292e49;
+  --brillo-fondo-2: #332940;
 }
 
 .tarjeta {
   width: min(100%, 520px);
   padding: 56px 40px;
-  border: 1px solid #ffffff;
+  border: 1px solid var(--borde-tarjeta);
   border-radius: 24px;
-  background: rgb(255 255 255 / 88%);
+  background: var(--fondo-tarjeta);
   box-shadow: 0 24px 70px rgb(40 56 110 / 12%);
   text-align: center;
 }
 
 .etiqueta {
   margin: 0 0 16px;
-  color: #5868c8;
+  color: var(--acento);
   font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.16em;
@@ -48,7 +79,7 @@ h1 {
 
 .descripcion {
   margin: 16px 0 28px;
-  color: #626980;
+  color: var(--texto-secundario);
   font-size: 1.05rem;
   line-height: 1.6;
 }
@@ -69,7 +100,7 @@ button {
 
 button:hover {
   transform: translateY(-2px);
-  background: #4655b2;
+  background: var(--acento-hover);
 }
 
 button:focus-visible {
@@ -80,8 +111,14 @@ button:focus-visible {
 .mensaje {
   min-height: 1.5em;
   margin: 20px 0 0;
-  color: #5868c8;
+  color: var(--acento);
   font-weight: 600;
+}
+
+.boton-tema {
+  position: fixed;
+  top: 24px;
+  right: 24px;
 }
 
 .reloj {
@@ -90,16 +127,16 @@ button:focus-visible {
   bottom: 24px;
   width: 112px;
   aspect-ratio: 1;
-  border: 5px solid #5868c8;
+  border: 5px solid var(--acento);
   border-radius: 50%;
-  background: rgb(255 255 255 / 94%);
+  background: var(--fondo-reloj);
   box-shadow: 0 8px 24px rgb(40 56 110 / 18%);
 }
 
 .marca {
   position: absolute;
   z-index: 1;
-  color: #626980;
+  color: var(--texto-secundario);
   font-size: 0.7rem;
   font-weight: 700;
   line-height: 1;
@@ -142,13 +179,13 @@ button:focus-visible {
 .manecilla-hora {
   width: 4px;
   height: 27px;
-  background: #20243a;
+  background: var(--color-texto);
 }
 
 .manecilla-minuto {
   width: 3px;
   height: 37px;
-  background: #5868c8;
+  background: var(--acento);
 }
 
 .manecilla-segundo {
@@ -180,5 +217,11 @@ button:focus-visible {
     right: 16px;
     bottom: 16px;
     width: 88px;
+  }
+
+  .boton-tema {
+    top: 16px;
+    right: 16px;
+    padding: 10px 16px;
   }
 }
