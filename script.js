@@ -7,6 +7,7 @@ const mensajes = [
 const boton = document.querySelector("#saludo");
 const texto = document.querySelector("#mensaje");
 let indiceMensaje = 0;
+texto.textContent = mensajes[indiceMensaje];
 
 const botonTema = document.querySelector("#cambiar-tema");
 const temaGuardado = localStorage.getItem("tema");

@@ -7,5 +7,13 @@ jobs:
   saludar:
     runs-on: ubuntu-latest
     steps:
+      - name: Obtener el código
+        uses: actions/checkout@v4
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Ejecutar tests
+        run: node --test tests/*.test.js
       - name: Mostrar saludo
         run: echo "Hola desde GitHub Actions!"
