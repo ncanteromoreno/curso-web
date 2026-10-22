@@ -33,6 +33,7 @@
 
 body {
   display: grid;
+  grid-template-rows: auto 1fr;
   min-height: 100vh;
   margin: 0;
   padding: 24px;
@@ -41,6 +42,25 @@ body {
     radial-gradient(circle at 15% 20%, var(--brillo-fondo-1) 0, transparent 32%),
     radial-gradient(circle at 85% 80%, var(--brillo-fondo-2) 0, transparent 30%),
     var(--fondo);
+}
+
+.encabezado {
+  display: flex;
+  width: min(100%, 900px);
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--texto-secundario);
+}
+
+.titulo-sitio {
+  min-width: 0;
+  margin: 0;
+  color: var(--texto-secundario);
+  font-size: 0.95rem;
+  font-weight: 650;
+  letter-spacing: 0.01em;
 }
 
 :root {
@@ -55,6 +75,7 @@ body {
 
 .tarjeta {
   width: min(100%, 520px);
+  justify-self: center;
   padding: 56px 40px;
   border: 1px solid var(--borde-tarjeta);
   border-radius: 24px;
@@ -104,7 +125,7 @@ button:hover {
 }
 
 button:focus-visible {
-  outline: 3px solid #aab4ff;
+  outline: 3px solid var(--acento);
   outline-offset: 4px;
 }
 
@@ -116,9 +137,16 @@ button:focus-visible {
 }
 
 .boton-tema {
-  position: fixed;
-  top: 24px;
-  right: 24px;
+  flex: 0 0 auto;
+  padding: 9px 15px;
+  border: 1px solid var(--acento);
+  background: transparent;
+  color: var(--color-texto);
+  font-size: 0.9rem;
+}
+
+.boton-tema:hover {
+  background: var(--fondo-tarjeta);
 }
 
 .reloj {
@@ -209,6 +237,15 @@ button:focus-visible {
 }
 
 @media (max-width: 480px) {
+  body {
+    padding: 16px;
+  }
+
+  .encabezado {
+    gap: 12px;
+    padding-bottom: 12px;
+  }
+
   .tarjeta {
     padding: 44px 24px;
   }
@@ -218,10 +255,19 @@ button:focus-visible {
     bottom: 16px;
     width: 88px;
   }
+}
+
+@media (max-width: 360px) {
+  .encabezado {
+    flex-wrap: wrap;
+  }
+
+  .titulo-sitio {
+    flex: 1 1 130px;
+  }
 
   .boton-tema {
-    top: 16px;
-    right: 16px;
-    padding: 10px 16px;
+    max-width: 100%;
+    white-space: normal;
   }
 }
